@@ -1,0 +1,2 @@
+# SmartEnumStudy
+SmartEnum を使って区分オブジェクトや状態遷移をクラスで表現するサンプルです。
