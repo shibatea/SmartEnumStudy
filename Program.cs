@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using SmartEnumStudy.Fee;
 using SmartEnumStudy.Reservation;
+using SmartEnumStudy.SeedWork;
 
 namespace SmartEnumStudy
 {
@@ -55,6 +57,16 @@ namespace SmartEnumStudy
                 // 3:Cancelled => Accepted = False
                 // 3:Cancelled => Paid = False
                 // 3:Cancelled => Cancelled = False
+            }
+
+            {
+                foreach (var feeType in Enumeration.GetAll<FeeType>().OrderBy(x => x.Id))
+                {
+                    Console.WriteLine($"{feeType.Id}:{feeType.Name}:{feeType.Yen()}:{feeType.Label()}");
+                }
+
+                var adultFeeType = Enumeration.FromValue<FeeType>(1);
+                Console.WriteLine($"{adultFeeType.Id}:{adultFeeType.Name}:{adultFeeType.Yen()}:{adultFeeType.Label()}");
             }
         }
 
