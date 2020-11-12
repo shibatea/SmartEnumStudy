@@ -13,9 +13,9 @@ namespace SmartEnumStudy.SeedWork
             Name = name;
         }
 
-        public string Name { get; }
-
         public int Id { get; }
+
+        public string Name { get; }
 
         public int CompareTo(object other)
         {
@@ -68,7 +68,8 @@ namespace SmartEnumStudy.SeedWork
             return matchingItem;
         }
 
-        private static T Parse<T, K>(K value, string description, Func<T, bool> predicate) where T : Enumeration
+        private static T Parse<T, TValue>(TValue value, string description, Func<T, bool> predicate)
+            where T : Enumeration
         {
             var matchingItem = GetAll<T>().FirstOrDefault(predicate);
 
